@@ -1,0 +1,15 @@
+{
+  "Group": "com.hcmultichar",
+  "Name": "HC_MultiChar",
+  "Version": "1.0.0",
+  "Description": "Multi-character system allowing multiple independent characters per account",
+  "Authors": [{"Name": "Server Admin"}],
+  "ServerVersion": "0.0.2",
+  "Dependencies": {
+    "Hytale:EntityModule": "*"
+  },
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "Main": "com.hcmultichar.HC_MultiCharPlugin",
+  "IncludesAssetPack": true
+}

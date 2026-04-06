@@ -1,0 +1,292 @@
+// HC_MultiChar - Character Selection Page
+$C = "../Common.ui";
+
+@BgSurface = #0b1220(0.94);
+@BgSlot = #0f172a(0.85);
+@BgSlotEmpty = #0f172a(0.45);
+@ColorOutline = #ffffff(0.12);
+@ColorAccent = #22d3ee;
+@ColorGold = $C.@ColorGoldHighlight;
+@ColorText = #e2e8f0;
+@ColorTextMuted = #94a3b8;
+@ColorTextBright = #ffffff;
+@ColorGreen = #22c55e;
+@ColorRed = #ef4444;
+
+@TitleStyle = LabelStyle(
+  FontSize: 22,
+  TextColor: @ColorText,
+  RenderBold: true,
+  RenderUppercase: true,
+  HorizontalAlignment: Center
+);
+
+@SlotTitleStyle = LabelStyle(
+  FontSize: 16,
+  TextColor: @ColorTextBright,
+  RenderBold: true,
+  HorizontalAlignment: Start,
+  VerticalAlignment: Center
+);
+
+@SlotInfoStyle = LabelStyle(
+  FontSize: 12,
+  TextColor: @ColorTextMuted,
+  HorizontalAlignment: Start,
+  VerticalAlignment: Center
+);
+
+@SlotActiveStyle = LabelStyle(
+  FontSize: 12,
+  TextColor: @ColorAccent,
+  RenderBold: true,
+  HorizontalAlignment: Start,
+  VerticalAlignment: Center
+);
+
+Group {
+  Anchor: (Full: 0);
+
+  SceneBlur {
+    Anchor: (Full: 0);
+    Background: #000000(0.5);
+  }
+
+  Group {
+    LayoutMode: Center;
+    Anchor: (Full: 0);
+
+    $C.@DecoratedContainer #SelectPanel {
+      Anchor: (Width: 700, Height: 420);
+
+      #Title {
+        Group {
+          LayoutMode: Center;
+          Anchor: (Full: 0);
+
+          Label {
+            Text: "SELECT CHARACTER";
+            Anchor: (Left: 0, Right: 0, Height: 26);
+            Style: @TitleStyle;
+          }
+        }
+      }
+
+      #Content {
+        Group #SlotsArea {
+          FlexWeight: 1;
+          LayoutMode: Top;
+          Padding: (Horizontal: 20, Top: 16, Bottom: 16);
+
+          // Slot 0
+          Group #CharSlot0 {
+            Anchor: (Left: 0, Right: 0, Height: 80);
+            LayoutMode: Left;
+            Padding: (Horizontal: 16, Vertical: 10);
+            Background: @BgSlot;
+            OutlineColor: @ColorOutline;
+            OutlineSize: 1;
+
+            // Active indicator bar
+            Group #ActiveBar0 {
+              Anchor: (Width: 4, Top: 0, Bottom: 0);
+              Background: @ColorAccent;
+              Visible: false;
+            }
+
+            Group { Anchor: (Width: 12); }
+
+            // Info area
+            Group #SlotInfo0 {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Padding: (Top: 4);
+
+              Label #SlotName0 {
+                Text: "Empty Slot";
+                Anchor: (Left: 0, Right: 0, Height: 22);
+                Style: @SlotTitleStyle;
+              }
+
+              Label #SlotDetails0 {
+                Text: "";
+                Anchor: (Left: 0, Right: 0, Height: 18);
+                Style: @SlotInfoStyle;
+              }
+
+              Label #SlotStatus0 {
+                Text: "";
+                Anchor: (Left: 0, Right: 0, Height: 18);
+                Style: @SlotActiveStyle;
+              }
+            }
+
+            // Action button
+            Group #BtnArea0 {
+              Anchor: (Width: 120, Top: 0, Bottom: 0);
+              LayoutMode: Center;
+
+              Button #PlayBtn0 {
+                Anchor: (Width: 100, Height: 36);
+                Style: (
+                  Default:  (Background: @ColorAccent),
+                  Hovered:  (Background: #06b6d4),
+                  Pressed:  (Background: #0891b2),
+                  Disabled: (Background: #1a2030)
+                );
+                LayoutMode: Center;
+
+                Label #PlayBtnLabel0 {
+                  Text: "PLAY";
+                  Style: (FontSize: 14, TextColor: #0b1220, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+                  Anchor: (Full: 0);
+                }
+              }
+            }
+          }
+
+          Group { Anchor: (Height: 10); }
+
+          // Slot 1
+          Group #CharSlot1 {
+            Anchor: (Left: 0, Right: 0, Height: 80);
+            LayoutMode: Left;
+            Padding: (Horizontal: 16, Vertical: 10);
+            Background: @BgSlot;
+            OutlineColor: @ColorOutline;
+            OutlineSize: 1;
+
+            Group #ActiveBar1 {
+              Anchor: (Width: 4, Top: 0, Bottom: 0);
+              Background: @ColorAccent;
+              Visible: false;
+            }
+
+            Group { Anchor: (Width: 12); }
+
+            Group #SlotInfo1 {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Padding: (Top: 4);
+
+              Label #SlotName1 {
+                Text: "Empty Slot";
+                Anchor: (Left: 0, Right: 0, Height: 22);
+                Style: @SlotTitleStyle;
+              }
+
+              Label #SlotDetails1 {
+                Text: "";
+                Anchor: (Left: 0, Right: 0, Height: 18);
+                Style: @SlotInfoStyle;
+              }
+
+              Label #SlotStatus1 {
+                Text: "";
+                Anchor: (Left: 0, Right: 0, Height: 18);
+                Style: @SlotActiveStyle;
+              }
+            }
+
+            Group #BtnArea1 {
+              Anchor: (Width: 120, Top: 0, Bottom: 0);
+              LayoutMode: Center;
+
+              Button #PlayBtn1 {
+                Anchor: (Width: 100, Height: 36);
+                Style: (
+                  Default:  (Background: @ColorAccent),
+                  Hovered:  (Background: #06b6d4),
+                  Pressed:  (Background: #0891b2),
+                  Disabled: (Background: #1a2030)
+                );
+                LayoutMode: Center;
+
+                Label #PlayBtnLabel1 {
+                  Text: "CREATE";
+                  Style: (FontSize: 14, TextColor: #0b1220, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+                  Anchor: (Full: 0);
+                }
+              }
+            }
+          }
+
+          Group { Anchor: (Height: 10); }
+
+          // Slot 2
+          Group #CharSlot2 {
+            Anchor: (Left: 0, Right: 0, Height: 80);
+            LayoutMode: Left;
+            Padding: (Horizontal: 16, Vertical: 10);
+            Background: @BgSlot;
+            OutlineColor: @ColorOutline;
+            OutlineSize: 1;
+
+            Group #ActiveBar2 {
+              Anchor: (Width: 4, Top: 0, Bottom: 0);
+              Background: @ColorAccent;
+              Visible: false;
+            }
+
+            Group { Anchor: (Width: 12); }
+
+            Group #SlotInfo2 {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Padding: (Top: 4);
+
+              Label #SlotName2 {
+                Text: "Empty Slot";
+                Anchor: (Left: 0, Right: 0, Height: 22);
+                Style: @SlotTitleStyle;
+              }
+
+              Label #SlotDetails2 {
+                Text: "";
+                Anchor: (Left: 0, Right: 0, Height: 18);
+                Style: @SlotInfoStyle;
+              }
+
+              Label #SlotStatus2 {
+                Text: "";
+                Anchor: (Left: 0, Right: 0, Height: 18);
+                Style: @SlotActiveStyle;
+              }
+            }
+
+            Group #BtnArea2 {
+              Anchor: (Width: 120, Top: 0, Bottom: 0);
+              LayoutMode: Center;
+
+              Button #PlayBtn2 {
+                Anchor: (Width: 100, Height: 36);
+                Style: (
+                  Default:  (Background: @ColorAccent),
+                  Hovered:  (Background: #06b6d4),
+                  Pressed:  (Background: #0891b2),
+                  Disabled: (Background: #1a2030)
+                );
+                LayoutMode: Center;
+
+                Label #PlayBtnLabel2 {
+                  Text: "CREATE";
+                  Style: (FontSize: 14, TextColor: #0b1220, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+                  Anchor: (Full: 0);
+                }
+              }
+            }
+          }
+
+          // Footer
+          Group { FlexWeight: 1; }
+
+          Label #FooterLabel {
+            Text: "Press ESC to close";
+            Anchor: (Left: 0, Right: 0, Height: 20);
+            Style: (FontSize: 13, TextColor: @ColorTextMuted, HorizontalAlignment: Center, VerticalAlignment: Center);
+          }
+        }
+      }
+    }
+  }
+}
